@@ -33,10 +33,10 @@ jobs:
       - name: Deploy to Elastic Beanstalk
         run: |
           aws elasticbeanstalk create-application-version \
-            --application-name My-app-env \
+            --application-name My-app \
             --version-label ${{ github.sha }} \
             --source-bundle S3Bucket="elasticbeanstalk-ap-southeast-2-335441918609",S3Key="deploy_package.zip"
 
           aws elasticbeanstalk update-environment \
-            --environment-name My-app-env \
+            --environment-name My-app-env-1 \
             --version-label ${{ github.sha }}
